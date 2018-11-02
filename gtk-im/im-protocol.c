@@ -46,7 +46,7 @@ protocol_send_event (MBKeyboardRemoteOperation op)
 	      SubstructureRedirectMask | SubstructureNotifyMask,
 	      &event);
 
-  XSync (display, False);
+  XSync (GDK_X11_DISPLAY(), False);
   
   if ((xerror = gdk_x11_display_error_trap_pop (display ))) {
     g_warning ("X error %d", xerror);
