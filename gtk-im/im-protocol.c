@@ -40,13 +40,13 @@ protocol_send_event (MBKeyboardRemoteOperation op)
   event.xclient.data.l[0] = op;
   GdkDisplay *display = GDK_WINDOW_DISPLAY (event.xclient.window)
   gdk_x11_display_error_trap_push (display);
-  XSendEvent (GDK_DISPLAY (), 
+  XSendEvent (display, 
 	      gdk_x11_get_default_root_xwindow (), 
 	      False,
 	      SubstructureRedirectMask | SubstructureNotifyMask,
 	      &event);
 
-  XSync (GDK_DISPLAY(), False);
+  XSync (display, False);
   
   if ((xerror = gdk_x11_display_error_trap_pop (display ))) {
     g_warning ("X error %d", xerror);
