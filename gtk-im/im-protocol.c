@@ -48,7 +48,7 @@ protocol_send_event (MBKeyboardRemoteOperation op)
 
   XSync (GDK_DISPLAY(), False);
   
-  if ((xerror = gdk_x11_display_error_trap_pop (GDK_DISPLAY () ))) {
+  if ((xerror = gdk_x11_display_error_trap_pop ())) {
     g_warning ("X error %d", xerror);
   }
 }
