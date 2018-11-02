@@ -39,7 +39,6 @@ protocol_send_event (MBKeyboardRemoteOperation op)
   event.xclient.format = 32;
   event.xclient.data.l[0] = op;
 
-#  gdk_error_trap_push ();
   gdk_x11_display_error_trap_push (GDK_DISPLAY () );
   XSendEvent (GDK_DISPLAY (), 
 	      gdk_x11_get_default_root_xwindow (), 
